@@ -67,6 +67,8 @@
 ---
 
 ### 5. Preparación para Publicación (Vercel & Cloudflare Pages)
+- **Repositorio GitHub**: [https://github.com/Ramagohlkercr/gala-equipamientos](https://github.com/Ramagohlkercr/gala-equipamientos)
+- **Despliegue Activo en Vercel**: [https://speedy-topaz-pmv96c8.tmp.now](https://speedy-topaz-pmv96c8.tmp.now) (Verificado HTTP 200 con soporte SPA directo).
 - `vercel.json`: Reglas de reescritura para rutas SPA (`/* -> /index.html`).
 - `public/_redirects`: Regla para Cloudflare Pages y Netlify (`/* /index.html 200`).
 - Generación de build estático en la carpeta `dist/`.
