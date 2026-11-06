@@ -161,7 +161,7 @@ export const PaymentsPage: React.FC = () => {
           </div>
 
           {/* Reservations Table */}
-          <div className="bg-gala-surface rounded-2xl border border-gala-border overflow-hidden shadow-subtle">
+          <div data-tour="payments-table" className="bg-gala-surface rounded-2xl border border-gala-border overflow-hidden shadow-subtle">
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse text-xs">
                 <thead>

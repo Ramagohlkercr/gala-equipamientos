@@ -129,7 +129,7 @@ export const ClientCatalogPage: React.FC = () => {
       </div>
 
       {/* Date Selection Card (Step 1 & 2) */}
-      <div className="bg-gala-surface rounded-2xl border border-gala-border p-5 sm:p-6 shadow-card max-w-3xl mx-auto">
+      <div data-tour="catalog-dates" className="bg-gala-surface rounded-2xl border border-gala-border p-5 sm:p-6 shadow-card max-w-3xl mx-auto">
         <div className="flex items-center gap-2 mb-4 pb-3 border-b border-gala-border/80">
           <Calendar size={18} className="text-gala-accent-dark" />
           <h2 className="font-serif text-base sm:text-lg font-semibold text-gala-black">
@@ -229,7 +229,7 @@ export const ClientCatalogPage: React.FC = () => {
       </div>
 
       {/* Products Grid (Step 4 & 5) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div data-tour="catalog-products" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProducts.map(product => {
           const avail = availability.find(a => a.productId === product.id);
           const availableUnits = avail ? avail.availableQuantity : 0;

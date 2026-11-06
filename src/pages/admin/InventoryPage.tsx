@@ -109,7 +109,7 @@ export const InventoryPage: React.FC = () => {
       )}
 
       {/* Date Inspection Bar */}
-      <div className="p-4 bg-gala-surface rounded-2xl border border-gala-border flex flex-wrap items-center justify-between gap-4 shadow-subtle">
+      <div data-tour="availability-checker" className="p-4 bg-gala-surface rounded-2xl border border-gala-border flex flex-wrap items-center justify-between gap-4 shadow-subtle">
         <div className="flex items-center gap-2">
           <Calendar size={16} className="text-gala-accent-dark" />
           <span className="text-xs font-semibold text-gala-black">
@@ -178,7 +178,7 @@ export const InventoryPage: React.FC = () => {
       </div>
 
       {/* Products Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div data-tour="inventory-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredProducts.map(product => {
           const avail = calculateProductAvailability(
             product,

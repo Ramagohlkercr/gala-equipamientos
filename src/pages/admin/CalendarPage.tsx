@@ -193,7 +193,7 @@ export const CalendarPage: React.FC = () => {
       {/* Main Grid: Calendar on left (2/3), Day agenda on right (1/3) */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Calendar View */}
-        <div className="lg:col-span-2 bg-gala-surface rounded-2xl border border-gala-border p-4 sm:p-5 shadow-subtle">
+        <div data-tour="calendar-grid" className="lg:col-span-2 bg-gala-surface rounded-2xl border border-gala-border p-4 sm:p-5 shadow-subtle">
           {/* Weekday headers */}
           <div className="grid grid-cols-7 gap-1 text-center font-semibold text-[11px] text-gala-gray pb-2 border-b border-gala-border">
             <span>Lun</span>

@@ -2,6 +2,8 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { AdminLayout } from './components/layout/AdminLayout';
 import { CatalogLayout } from './components/layout/CatalogLayout';
+import { TutorialProvider } from './context/TutorialContext';
+import { InteractiveTutorialModal } from './components/tutorial/InteractiveTutorialModal';
 
 // Admin Pages
 import { DashboardPage } from './pages/admin/DashboardPage';
@@ -19,35 +21,43 @@ import { ClientConfirmationPage } from './pages/catalog/ClientConfirmationPage';
 
 // Welcome & Demo Guide Page
 import { DemoWelcomePage } from './pages/DemoWelcomePage';
+import { HelpCenterPage } from './pages/HelpCenterPage';
 
 export const App: React.FC = () => {
   return (
-    <Routes>
-      {/* Welcome / Demo Overview */}
-      <Route path="/" element={<Navigate to="/demo" replace />} />
-      <Route path="/demo" element={<DemoWelcomePage />} />
+    <TutorialProvider>
+      <Routes>
+        {/* Welcome / Demo Overview */}
+        <Route path="/" element={<Navigate to="/demo" replace />} />
+        <Route path="/demo" element={<DemoWelcomePage />} />
+        <Route path="/ayuda" element={<HelpCenterPage />} />
 
-      {/* Admin Panel */}
-      <Route path="/admin" element={<AdminLayout />}>
-        <Route index element={<DashboardPage />} />
-        <Route path="inventario" element={<InventoryPage />} />
-        <Route path="reservas" element={<ReservationsListPage />} />
-        <Route path="reservas/nueva" element={<CreateReservationPage />} />
-        <Route path="calendario" element={<CalendarPage />} />
-        <Route path="clientes" element={<ClientsPage />} />
-        <Route path="pagos" element={<PaymentsPage />} />
-      </Route>
+        {/* Admin Panel */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<DashboardPage />} />
+          <Route path="inventario" element={<InventoryPage />} />
+          <Route path="reservas" element={<ReservationsListPage />} />
+          <Route path="reservas/nueva" element={<CreateReservationPage />} />
+          <Route path="calendario" element={<CalendarPage />} />
+          <Route path="clientes" element={<ClientsPage />} />
+          <Route path="pagos" element={<PaymentsPage />} />
+        </Route>
 
-      {/* Client Catalog */}
-      <Route path="/catalogo" element={<CatalogLayout />}>
-        <Route index element={<ClientCatalogPage />} />
-        <Route path="pedido" element={<ClientOrderPage />} />
-        <Route path="confirmacion" element={<ClientConfirmationPage />} />
-      </Route>
+        {/* Client Catalog */}
+        <Route path="/catalogo" element={<CatalogLayout />}>
+          <Route index element={<ClientCatalogPage />} />
+          <Route path="pedido" element={<ClientOrderPage />} />
+          <Route path="confirmacion" element={<ClientConfirmationPage />} />
+        </Route>
 
-      {/* Fallback */}
-      <Route path="*" element={<Navigate to="/demo" replace />} />
-    </Routes>
+        {/* Fallback */}
+        <Route path="*" element={<Navigate to="/demo" replace />} />
+      </Routes>
+
+      {/* Global Interactive Guided Tour Modal */}
+      <InteractiveTutorialModal />
+    </TutorialProvider>
   );
 };
+
 

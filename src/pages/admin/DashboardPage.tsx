@@ -92,7 +92,7 @@ export const DashboardPage: React.FC = () => {
       )}
 
       {/* Metrics Cards Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+      <div data-tour="metric-cards" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
         <MetricCard
           title="Confirmadas"
           value={stats.confirmedReservations}

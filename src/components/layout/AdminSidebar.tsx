@@ -9,9 +9,12 @@ import {
   Wallet,
   PlusCircle,
   ExternalLink,
+  BookOpen,
+  Compass,
 } from 'lucide-react';
 import { GalaLogo } from '../common/GalaLogo';
 import { useApp } from '../../context/AppContext';
+import { useTutorial } from '../../context/TutorialContext';
 
 interface AdminSidebarProps {
   onCloseMobile?: () => void;
@@ -19,6 +22,7 @@ interface AdminSidebarProps {
 
 export const AdminSidebar: React.FC<AdminSidebarProps> = ({ onCloseMobile }) => {
   const { stats } = useApp();
+  const { startTutorial } = useTutorial();
 
   const navItems = [
     {
@@ -53,6 +57,11 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ onCloseMobile }) => 
       to: '/admin/pagos',
       label: 'Pagos y Señas',
       icon: <Wallet size={18} />,
+    },
+    {
+      to: '/ayuda',
+      label: 'Guía y Ayuda',
+      icon: <BookOpen size={18} />,
     },
   ];
 
@@ -112,7 +121,21 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ onCloseMobile }) => 
       </nav>
 
       {/* Public catalog shortcut & footer */}
-      <div className="p-4 border-t border-gala-border/80 bg-white/40 space-y-3">
+      <div className="p-4 border-t border-gala-border/80 bg-white/40 space-y-2.5">
+        <button
+          onClick={() => {
+            if (onCloseMobile) onCloseMobile();
+            startTutorial(0);
+          }}
+          className="w-full flex items-center justify-between p-2.5 rounded-xl bg-gala-accent/25 border border-gala-accent/60 text-gala-black hover:bg-gala-accent/40 transition-colors text-xs font-semibold"
+          title="Iniciar tutorial guiado"
+        >
+          <div className="flex items-center gap-2">
+            <Compass size={15} className="text-gala-accent-dark" />
+            <span>¿Cómo usar el sistema?</span>
+          </div>
+        </button>
+
         <NavLink
           to="/catalogo"
           target="_blank"

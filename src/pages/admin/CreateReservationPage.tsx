@@ -209,7 +209,7 @@ export const CreateReservationPage: React.FC = () => {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form data-tour="new-reservation-form" onSubmit={handleSubmit} className="space-y-6">
         {/* Step 1: Dates & Period (crucial for live stock calculations) */}
         <div className="p-5 bg-gala-surface rounded-2xl border border-gala-border shadow-subtle space-y-4">
           <h2 className="font-serif text-base font-semibold text-gala-black flex items-center gap-2 border-b border-gala-border/80 pb-3">

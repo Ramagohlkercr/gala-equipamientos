@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
+import { useTutorial } from '../context/TutorialContext';
 import { GalaLogo } from '../components/common/GalaLogo';
 import { Button } from '../components/common/Button';
 import {
@@ -15,11 +16,15 @@ import {
   ArrowRight,
   Sparkles,
   Layers,
+  Compass,
+  HelpCircle,
+  BookOpen,
 } from 'lucide-react';
 
 export const DemoWelcomePage: React.FC = () => {
   const navigate = useNavigate();
   const { resetDemo } = useApp();
+  const { startTutorial } = useTutorial();
 
   const scenarios = [
     {
@@ -87,11 +92,28 @@ export const DemoWelcomePage: React.FC = () => {
     <div className="min-h-screen bg-gala-bg text-gala-black font-sans flex flex-col justify-between">
       {/* Top Header */}
       <header className="border-b border-gala-border/80 bg-gala-surface/80 backdrop-blur-md px-6 py-4">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
+        <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3">
           <GalaLogo size="md" />
-          <span className="text-[11px] font-semibold text-gala-accent-dark tracking-wider uppercase border border-gala-accent/60 bg-gala-accent/20 px-3 py-1 rounded-full">
-            Fluent Code Soluciones
-          </span>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => startTutorial(0)}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-gala-accent text-gala-black hover:bg-gala-accent-dark transition-colors shadow-xs"
+              title="Iniciar recorrido guiado"
+            >
+              <Compass size={14} />
+              <span>¿Cómo usar el sistema?</span>
+            </button>
+            <button
+              onClick={() => navigate('/ayuda')}
+              className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium bg-gala-bg text-stone-700 hover:text-gala-black border border-gala-border transition-colors"
+            >
+              <BookOpen size={13} />
+              <span>Centro de Ayuda</span>
+            </button>
+            <span className="text-[11px] font-semibold text-gala-accent-dark tracking-wider uppercase border border-gala-accent/60 bg-gala-accent/20 px-3 py-1 rounded-full hidden sm:inline-block">
+              Fluent Code Soluciones
+            </span>
+          </div>
         </div>
       </header>
 
@@ -109,8 +131,11 @@ export const DemoWelcomePage: React.FC = () => {
             <strong className="text-gala-black font-semibold">Fluent Code Soluciones</strong>.
           </p>
 
-          {/* Quick primary buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
+          {/* Quick primary buttons (TAREA 5) */}
+          <div
+            data-tour="hero-actions"
+            className="flex flex-wrap items-center justify-center gap-3 pt-3"
+          >
             <Button
               variant="primary"
               size="lg"
@@ -130,11 +155,22 @@ export const DemoWelcomePage: React.FC = () => {
             >
               Simular un pedido
             </Button>
+
+            <Button
+              variant="outline"
+              size="lg"
+              icon={<Compass size={18} className="text-gala-accent-dark" />}
+              onClick={() => startTutorial(0)}
+              className="px-6 py-3 text-sm font-semibold bg-gala-surface hover:bg-white border-gala-accent shadow-xs"
+            >
+              Ver tutorial
+            </Button>
           </div>
 
-          <p className="text-[11px] text-gala-gray italic pt-2">
-            Versión demostrativa con datos de ejemplo.
-          </p>
+          {/* Clear Demo Disclaimer (TAREA 4) */}
+          <div className="p-3 bg-gala-surface/80 rounded-xl border border-gala-border/80 max-w-lg mx-auto text-[11px] text-stone-600 leading-snug">
+            Esta demostración utiliza datos de ejemplo. Los cambios se guardan solamente en este navegador. No se procesan pagos ni pedidos reales.
+          </div>
         </div>
 
         {/* 10 Testable Scenarios Cards */}
@@ -152,6 +188,7 @@ export const DemoWelcomePage: React.FC = () => {
             {scenarios.map((sc, i) => (
               <div
                 key={i}
+                data-tour={sc.number === '10' ? 'reset-demo-action' : undefined}
                 className="bg-gala-surface p-5 rounded-2xl border border-gala-border shadow-subtle hover:border-gala-border-dark transition-all flex flex-col justify-between"
               >
                 <div>

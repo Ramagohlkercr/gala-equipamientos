@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useApp } from '../../context/AppContext';
-import { RotateCcw, Store, Shield, HelpCircle, Bell, ChevronDown } from 'lucide-react';
+import { useTutorial } from '../../context/TutorialContext';
+import { RotateCcw, Store, Shield, HelpCircle, Bell, Compass, BookOpen } from 'lucide-react';
 
 export const DemoBanner: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { stats, resetDemo } = useApp();
+  const { startTutorial } = useTutorial();
   const [showConfirmReset, setShowConfirmReset] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
 
@@ -76,6 +78,31 @@ export const DemoBanner: React.FC = () => {
                 <span>Vista Cliente</span>
               </button>
             </div>
+
+            {/* Interactive Tutorial Button (TAREA 1) */}
+            <button
+              onClick={() => startTutorial(0)}
+              className="bg-gala-accent/90 hover:bg-gala-accent text-gala-black px-2.5 py-1 rounded-md text-[11px] font-semibold flex items-center gap-1 transition-colors shadow-xs"
+              title="Iniciar recorrido guiado interactivo"
+            >
+              <Compass size={13} />
+              <span className="hidden sm:inline">¿Cómo usar el sistema?</span>
+              <span className="sm:hidden">Tutorial</span>
+            </button>
+
+            {/* Help Center Manual Link */}
+            <button
+              onClick={() => navigate('/ayuda')}
+              className={`p-1.5 rounded-lg border transition-colors flex items-center gap-1 text-[11px] ${
+                location.pathname === '/ayuda'
+                  ? 'bg-stone-800 text-white border-stone-600'
+                  : 'bg-stone-900/60 text-stone-300 hover:text-white border-stone-800'
+              }`}
+              title="Abrir Centro de Ayuda y Manual completo"
+            >
+              <BookOpen size={13} />
+              <span className="hidden xl:inline">Manual</span>
+            </button>
 
             {/* Demo Guide */}
             <button

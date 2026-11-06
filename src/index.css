@@ -28,3 +28,13 @@
   background: #B89C7A;
 }
 
+/* Tutorial Interactive Spotlight */
+.tour-highlight-active {
+  outline: 3px solid #D4AF37 !important;
+  outline-offset: 4px !important;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.45) !important;
+  transition: all 0.3s ease-in-out !important;
+  border-radius: 12px;
+}
+
+
