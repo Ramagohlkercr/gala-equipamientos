@@ -61,3 +61,4 @@ export const CatalogLayout: React.FC = () => {
     </div>
   );
 };
+

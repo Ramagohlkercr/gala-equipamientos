@@ -98,25 +98,27 @@ export const DemoWelcomePage: React.FC = () => {
       {/* Main Hero */}
       <main className="max-w-5xl mx-auto px-4 py-10 sm:py-14 space-y-12">
         <div className="text-center space-y-4 max-w-2xl mx-auto">
-          <span className="text-xs font-semibold tracking-[0.25em] text-gala-accent-dark uppercase">
-            Demostración Comercial Interactiva
-          </span>
           <h1 className="font-serif text-3xl sm:text-5xl font-semibold text-gala-black tracking-tight leading-tight">
-            Gala Equipamientos
+            GALA EQUIPAMIENTOS
           </h1>
-          <p className="text-sm sm:text-base text-gala-gray leading-relaxed">
-            Explorá cómo administrar reservas, controlar mobiliario sin sobreventa y recibir pedidos online desde un solo lugar.
+          <p className="text-base sm:text-xl text-stone-800 font-serif italic">
+            Sistema de gestión de mobiliario y reservas.
+          </p>
+          <p className="text-xs sm:text-sm text-gala-gray leading-relaxed">
+            Demostración interactiva desarrollada por{' '}
+            <strong className="text-gala-black font-semibold">Fluent Code Soluciones</strong>.
           </p>
 
           {/* Quick primary buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
             <Button
               variant="primary"
               size="lg"
               icon={<Shield size={18} />}
               onClick={() => navigate('/admin')}
+              className="px-6 py-3 text-sm font-semibold shadow-card"
             >
-              Explorar administración
+              Explorar el sistema
             </Button>
 
             <Button
@@ -124,22 +126,15 @@ export const DemoWelcomePage: React.FC = () => {
               size="lg"
               icon={<Store size={18} />}
               onClick={() => navigate('/catalogo')}
+              className="px-6 py-3 text-sm font-semibold"
             >
-              Simular un pedido como cliente
-            </Button>
-
-            <Button
-              variant="outline"
-              size="lg"
-              icon={<RotateCcw size={16} />}
-              onClick={() => {
-                resetDemo();
-                alert('Demostración reiniciada.');
-              }}
-            >
-              Reiniciar demostración
+              Simular un pedido
             </Button>
           </div>
+
+          <p className="text-[11px] text-gala-gray italic pt-2">
+            Versión demostrativa con datos de ejemplo.
+          </p>
         </div>
 
         {/* 10 Testable Scenarios Cards */}
@@ -225,3 +220,4 @@ export const DemoWelcomePage: React.FC = () => {
     </div>
   );
 };
+

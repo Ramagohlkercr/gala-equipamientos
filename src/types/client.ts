@@ -9,3 +9,4 @@ export interface Client {
   totalReservations?: number;
   createdAt: string;
 }
+

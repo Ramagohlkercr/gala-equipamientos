@@ -27,3 +27,4 @@ export const ReservationStatusBadge: React.FC<ReservationStatusBadgeProps> = ({
     </Badge>
   );
 };
+

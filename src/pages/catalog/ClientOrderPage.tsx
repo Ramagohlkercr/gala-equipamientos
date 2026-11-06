@@ -35,6 +35,7 @@ export const ClientOrderPage: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     const savedItems = sessionStorage.getItem('gala_cart_items');
     const savedEvent = sessionStorage.getItem('gala_cart_event_date');
     const savedDelivery = sessionStorage.getItem('gala_cart_delivery_date');
@@ -281,3 +282,4 @@ export const ClientOrderPage: React.FC = () => {
     </div>
   );
 };
+

@@ -279,3 +279,4 @@ export const INITIAL_PAYMENTS: PaymentRecord[] = [
     createdAt: '2026-10-31',
   },
 ];
+

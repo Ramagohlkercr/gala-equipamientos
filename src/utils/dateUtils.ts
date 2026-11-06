@@ -73,3 +73,4 @@ export function daysDifference(startStr: string, endStr: string): number {
   const d2 = new Date(p2.year, p2.month - 1, p2.day).getTime();
   return Math.round((d2 - d1) / (1000 * 60 * 60 * 24));
 }
+

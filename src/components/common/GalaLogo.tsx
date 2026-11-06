@@ -65,3 +65,4 @@ export const GalaLogo: React.FC<GalaLogoProps> = ({
     </div>
   );
 };
+

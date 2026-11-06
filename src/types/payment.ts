@@ -12,3 +12,4 @@ export interface PaymentRecord {
   receiptName?: string; // Simulation of voucher / comprobante
   createdAt: string;
 }
+

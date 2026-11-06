@@ -93,3 +93,4 @@ La aplicación está lista para publicarse en servicios estáticos sin configura
 
 ## 💡 Nota de Demostración Comercial
 Cada dispositivo o navegador que abra la demo interactúa con su propio almacenamiento local (`localStorage`). Para la segunda fase, la arquitectura se encuentra modularizada para conectar directamente una base de datos PostgreSQL / Supabase y habilitar sincronización en tiempo real entre administradores.
+

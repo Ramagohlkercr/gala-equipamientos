@@ -250,3 +250,4 @@ export const RegisterPaymentModal: React.FC<RegisterPaymentModalProps> = ({
     </Modal>
   );
 };
+

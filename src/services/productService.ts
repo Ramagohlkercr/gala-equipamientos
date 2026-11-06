@@ -60,3 +60,4 @@ export const productService = {
     return this.update(id, { active: !product.active });
   },
 };
+

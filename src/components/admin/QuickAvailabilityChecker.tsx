@@ -160,3 +160,4 @@ export const QuickAvailabilityChecker: React.FC = () => {
     </div>
   );
 };
+

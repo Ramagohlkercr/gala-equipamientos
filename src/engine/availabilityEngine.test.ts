@@ -369,3 +369,4 @@ describe('Motor de Disponibilidad — Gala Equipamientos', () => {
     expect(availEarly.availableQuantity).toBe(70);
   });
 });
+

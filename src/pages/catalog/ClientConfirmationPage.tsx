@@ -21,6 +21,7 @@ export const ClientConfirmationPage: React.FC = () => {
   const [copiedAlias, setCopiedAlias] = useState(false);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     const raw = sessionStorage.getItem('gala_last_order');
     if (raw) {
       try {
@@ -200,3 +201,4 @@ export const ClientConfirmationPage: React.FC = () => {
     </div>
   );
 };
+

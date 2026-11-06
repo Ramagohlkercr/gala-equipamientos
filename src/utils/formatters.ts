@@ -61,3 +61,4 @@ export function buildWhatsAppLink(phone: string, message: string = ''): string {
   const encodedMsg = encodeURIComponent(message);
   return `https://wa.me/${intlPhone}${message ? `?text=${encodedMsg}` : ''}`;
 }
+

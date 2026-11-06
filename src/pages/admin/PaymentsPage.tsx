@@ -312,3 +312,4 @@ export const PaymentsPage: React.FC = () => {
     </div>
   );
 };
+

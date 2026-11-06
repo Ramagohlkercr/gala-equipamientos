@@ -25,3 +25,4 @@ export const PaymentStatusBadge: React.FC<PaymentStatusBadgeProps> = ({
     </Badge>
   );
 };
+

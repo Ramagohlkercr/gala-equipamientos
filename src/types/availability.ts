@@ -18,3 +18,4 @@ export interface DayOccupancy {
   occupied: number;
   available: number;
 }
+
