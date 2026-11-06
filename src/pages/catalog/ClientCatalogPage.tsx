@@ -5,6 +5,7 @@ import { Product } from '../../types';
 import { calculateAllProductsAvailability } from '../../engine/availabilityEngine';
 import { getTodayString, addDaysString } from '../../utils/dateUtils';
 import { formatCurrency, formatDate } from '../../utils/formatters';
+import { getProductImageUrl } from '../../utils/productImages';
 import { Badge } from '../../components/common/Badge';
 import { Button } from '../../components/common/Button';
 import {
@@ -242,19 +243,15 @@ export const ClientCatalogPage: React.FC = () => {
               <div>
                 {/* Photo */}
                 <div className="relative h-52 bg-gala-bg overflow-hidden border-b border-gala-border/80">
-                  {product.imageUrl ? (
-                    <img
-                      src={product.imageUrl}
-                      alt={product.name}
-                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center text-gala-gray">
-                      <Armchair size={44} />
-                      <span className="text-[11px] mt-1 font-medium">Gala Mobiliario</span>
-                    </div>
-                  )}
+                  <img
+                    src={getProductImageUrl(product)}
+                    alt={product.name}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    loading="lazy"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = '/images/products/sillas-tiffany.jpg';
+                    }}
+                  />
 
                   <div className="absolute top-3 left-3">
                     <span className="text-[10px] font-semibold bg-gala-black/80 backdrop-blur-xs text-white px-3 py-1 rounded-full uppercase tracking-wider">

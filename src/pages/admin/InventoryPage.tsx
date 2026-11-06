@@ -4,6 +4,7 @@ import { Product, ProductCategory } from '../../types';
 import { formatCurrency } from '../../utils/formatters';
 import { getTodayString, addDaysString } from '../../utils/dateUtils';
 import { calculateProductAvailability } from '../../engine/availabilityEngine';
+import { getProductImageUrl } from '../../utils/productImages';
 import { Button } from '../../components/common/Button';
 import { Badge } from '../../components/common/Badge';
 import { ProductFormModal } from '../../components/admin/ProductFormModal';
@@ -195,19 +196,15 @@ export const InventoryPage: React.FC = () => {
               <div>
                 {/* Product Image or Placeholder */}
                 <div className="relative h-44 bg-gala-bg overflow-hidden border-b border-gala-border/80">
-                  {product.imageUrl ? (
-                    <img
-                      src={product.imageUrl}
-                      alt={product.name}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center text-gala-gray">
-                      <Armchair size={36} />
-                      <span className="text-[10px] mt-1">Sin fotografía</span>
-                    </div>
-                  )}
+                  <img
+                    src={getProductImageUrl(product)}
+                    alt={product.name}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    loading="lazy"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = '/images/products/sillas-tiffany.jpg';
+                    }}
+                  />
 
                   <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
                     <span className="text-[10px] font-semibold bg-gala-black/70 backdrop-blur-xs text-white px-2.5 py-0.5 rounded-full">
