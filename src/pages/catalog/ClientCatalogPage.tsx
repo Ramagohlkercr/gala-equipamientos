@@ -123,6 +123,9 @@ export const ClientCatalogPage: React.FC = () => {
         <p className="text-xs sm:text-sm text-gala-gray max-w-lg mx-auto leading-relaxed">
           Elegí el mobiliario que necesitás y consultá disponibilidad en tiempo real para tu fecha.
         </p>
+        <p className="text-[11px] text-stone-400 italic">
+          * Fotografías ilustrativas y datos simulados para demostración comercial.
+        </p>
       </div>
 
       {/* Date Selection Card (Step 1 & 2) */}

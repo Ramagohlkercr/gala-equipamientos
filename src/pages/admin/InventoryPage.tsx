@@ -75,6 +75,9 @@ export const InventoryPage: React.FC = () => {
           <p className="text-xs sm:text-sm text-gala-gray mt-1">
             Administrá el stock total, valores de alquiler y consultá la disponibilidad según fechas.
           </p>
+          <p className="text-[11px] text-stone-400 italic mt-0.5">
+            * Fotografías ilustrativas para demostración comercial.
+          </p>
         </div>
 
         <Button

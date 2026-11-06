@@ -79,3 +79,4 @@ describe('Product Images & Visual Coherence — Gala Equipamientos', () => {
     }
   });
 });
+
